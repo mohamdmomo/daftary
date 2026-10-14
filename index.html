@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ECF6F4" id="themeColor">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="دفتري — حساباتك في مكان واحد. بسيط، سريع، وبدون إنترنت.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="دفتري">
+
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="styles.css">
+
+<title>دفتري</title>
+</head>
+<body>
+
+<!-- ═══════════ SVG SPRITE ═══════════ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<defs>
+
+<!-- Home -->
+<symbol id="i-home" viewBox="0 0 24 24">
+<path d="M3.5 10.5L12 3l8.5 7.5V20a1.5 1.5 0 0 1-1.5 1.5h-4.5V15h-5v6.5H5A1.5 1.5 0 0 1 3.5 20V10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+</symbol>
+
+<!-- Search -->
+<symbol id="i-search" viewBox="0 0 24 24">
+<circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<path d="M16.5 16.5l4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+</symbol>
+<!-- Mic (بحث بالصوت) -->
+<symbol id="i-mic" viewBox="0 0 24 24">
+  <rect x="9" y="2" width="6" height="12" rx="3" fill="currentColor"/>
+  <path d="M5 11v1a7 7 0 0 0 14 0v-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  <path d="M12 19v3M8 22h8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+</symbol>
+
+<!-- Plus -->
+<symbol id="i-plus" viewBox="0 0 24 24">
+<path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+</symbol>
+
+<!-- Calendar -->
+<symbol id="i-calendar" viewBox="0 0 24 24">
+<rect x="3.5" y="5" width="17" height="15.5" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/>
+<path d="M3.5 10h17M8 3v4M16 3v4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+</symbol>
+
+<!-- More -->
+<symbol id="i-more" viewBox="0 0 24 24">
+<circle cx="6" cy="12" r="1.8" fill="currentColor"/>
+<circle cx="12" cy="12" r="1.8" fill="currentColor"/>
+<circle cx="18" cy="12" r="1.8" fill="currentColor"/>
+</symbol>
+
+<!-- Wallet (مصروفاتي) -->
+<symbol id="i-wallet" viewBox="0 0 24 24">
+<path d="M3 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1h-3a3 3 0 0 0 0 6h3v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z" fill="currentColor"/>
+<circle cx="17.5" cy="12" r="1.5" fill="var(--card)"/>
+</symbol>
+
+<!-- Handshake (فلوس مع حد) -->
+<symbol id="i-handshake" viewBox="0 0 24 24">
+<path d="M4 10l4-4 4 3 4-3 4 4v6l-3 3-3-3-2 2-2-2-3 3-3-3v-6z" fill="currentColor"/>
+</symbol>
+
+<!-- Book (حاجة تانية) -->
+<symbol id="i-book" viewBox="0 0 24 24">
+<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5z" fill="currentColor" opacity=".9"/>
+<path d="M4 21a2 2 0 0 0 2 2h13v-2H6a2 2 0 0 0-2 2z" fill="currentColor"/>
+<path d="M8 8h8M8 12h8M8 16h5" stroke="var(--card)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+</symbol>
+
+<!-- Check -->
+<symbol id="i-check" viewBox="0 0 24 24">
+<path d="M4.5 12.5l5 5L20 7" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+<!-- Edit -->
+<symbol id="i-edit" viewBox="0 0 24 24">
+<path d="M4 20h4L20 8l-4-4L4 16v4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+<path d="M14 6l4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+</symbol>
+
+<!-- Trash -->
+<symbol id="i-trash" viewBox="0 0 24 24">
+<path d="M5 7h14M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M7 7l1 13a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2l1-13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+<!-- Share -->
+<symbol id="i-share" viewBox="0 0 24 24">
+<path d="M12 3v13M7 8l5-5 5 5M5 21h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+<!-- Moon -->
+<symbol id="i-moon" viewBox="0 0 24 24">
+<path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z" fill="currentColor"/>
+</symbol>
+
+<!-- Sun -->
+<symbol id="i-sun" viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="4.5" fill="currentColor"/>
+<path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M5 5l1.8 1.8M17.2 17.2L19 19M5 19l1.8-1.8M17.2 6.8L19 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+</symbol>
+
+<!-- Backup -->
+<symbol id="i-backup" viewBox="0 0 24 24">
+<path d="M12 3v12M7 10l5 5 5-5M5 21h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+<!-- Lock -->
+<symbol id="i-lock" viewBox="0 0 24 24">
+<rect x="5" y="11" width="14" height="10" rx="2" fill="currentColor"/>
+<path d="M8 11V8a4 4 0 1 1 8 0v3" fill="none" stroke="currentColor" stroke-width="2.2"/>
+</symbol>
+
+<!-- Target (ميزانية) -->
+<symbol id="i-target" viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+<circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/>
+<circle cx="12" cy="12" r="2" fill="currentColor"/>
+</symbol>
+
+<!-- Stats (تقارير) -->
+<symbol id="i-stats" viewBox="0 0 24 24">
+<path d="M4 20V10M10 20V4M16 20V14M22 20H2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+</symbol>
+
+<!-- Bell -->
+<symbol id="i-bell" viewBox="0 0 24 24">
+<path d="M6 16V11a6 6 0 0 1 12 0v5l2 3H4l2-3zM10 21a2 2 0 0 0 4 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+<!-- Install -->
+<symbol id="i-install" viewBox="0 0 24 24">
+<rect x="6" y="2.5" width="12" height="19" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/>
+<path d="M12 8v7M9 12l3 3 3-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+<!-- Help -->
+<symbol id="i-help" viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+<path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.8.4-1 .9-1 1.7v.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+<circle cx="12" cy="17" r="1.2" fill="currentColor"/>
+</symbol>
+
+<!-- Info -->
+<symbol id="i-info" viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+<path d="M12 8v.5M12 11v6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+</symbol>
+
+<!-- Close -->
+<symbol id="i-close" viewBox="0 0 24 24">
+<path d="M6 6l12 12M6 18L18 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+</symbol>
+
+<!-- Back -->
+<symbol id="i-back" viewBox="0 0 24 24">
+<path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+<!-- Chevron -->
+<symbol id="i-chevron" viewBox="0 0 24 24">
+<path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+<!-- Chevron Down -->
+<symbol id="i-chev-down" viewBox="0 0 24 24">
+<path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+<!-- Chevron Left -->
+<symbol id="i-chev-left" viewBox="0 0 24 24">
+<path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+<!-- Chevron Right -->
+<symbol id="i-chev-right" viewBox="0 0 24 24">
+<path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+<!-- Brain (ذكاء) -->
+<symbol id="i-brain" viewBox="0 0 24 24">
+<path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-3 3 3 3 0 0 0 1 2.2A3 3 0 0 0 4 15a3 3 0 0 0 3 3 3 3 0 0 0 3 2V4a3 3 0 0 0-1 0zM15 4a3 3 0 0 1 3 3 3 3 0 0 1 3 3 3 3 0 0 1-1 2.2A3 3 0 0 1 20 15a3 3 0 0 1-3 3 3 3 0 0 1-3 2V4a3 3 0 0 1 1 0z" fill="currentColor" opacity=".85"/>
+</symbol>
+
+<!-- Clock -->
+<symbol id="i-clock" viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+<path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+<!-- Location -->
+<symbol id="i-location" viewBox="0 0 24 24">
+<path d="M12 21s7-6 7-12a7 7 0 1 0-14 0c0 6 7 12 7 12z" fill="currentColor"/>
+<circle cx="12" cy="9" r="2.5" fill="var(--card)"/>
+</symbol>
+
+<!-- Doc (كشف) -->
+<symbol id="i-doc" viewBox="0 0 24 24">
+<path d="M6 3h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" fill="currentColor"/>
+<path d="M14 3v6h6" fill="none" stroke="var(--card)" stroke-width="1.5"/>
+<path d="M9 13h6M9 17h4" fill="none" stroke="var(--card)" stroke-width="1.6" stroke-linecap="round"/>
+</symbol>
+
+</defs>
+</svg>
+
+<!-- ═══════════ BOOT SCREEN ═══════════ -->
+<div id="boot" class="boot" aria-hidden="true">
+<div class="boot-wrap">
+<svg class="boot-logo" viewBox="0 0 64 64" width="80" height="80">
+<rect x="8" y="6" width="48" height="52" rx="12" fill="currentColor"/>
+<path d="M20 22h24M20 32h24M20 42h14" stroke="#fff" stroke-width="3.5" stroke-linecap="round" fill="none" opacity=".95"/>
+</svg>
+<div class="boot-title">دفتري</div>
+<div class="boot-sub">جاهزين...</div>
+<div class="boot-bar"><span></span></div>
+</div>
+</div>
+
+<!-- ═══════════ APP SHELL ═══════════ -->
+<div id="app" class="app" hidden>
+
+<header id="header" class="header"></header>
+
+<main id="view" class="view" role="main"></main>
+
+<nav id="nav" class="nav" aria-label="التنقل"></nav>
+
+</div>
+
+<!-- ═══════════ OVERLAY + SHEET ═══════════ -->
+<div id="ov" class="ov" onclick="Daftary.closeSheet()" aria-hidden="true"></div>
+<div id="sh" class="sh" role="dialog" aria-modal="true" hidden></div>
+
+<!-- ═══════════ TOAST ═══════════ -->
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<!-- ═══════════ UNDO ═══════════ -->
+<div id="undo" class="undo" hidden></div>
+
+<!-- ═══════════ LOCK ═══════════ -->
+<div id="lock" class="lock" hidden></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+<script src="sound.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
